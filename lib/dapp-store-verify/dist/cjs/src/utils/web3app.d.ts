@@ -1,0 +1,62 @@
+export default App;
+declare namespace App {
+    const web3Provider: null;
+    const contracts: {};
+    const web3: null;
+    const account: number;
+    function init(): Promise<{
+        web3Provider: null;
+        contracts: {};
+        web3: null;
+        account: number;
+        init: () => Promise<any | null>;
+        initWeb3: () => Promise<any | null>;
+        initContract: () => Promise<any>;
+        getAccount: () => Promise<number>;
+        useMetaMask: () => boolean;
+        sell: () => Promise<void>;
+        buy: () => Promise<void>;
+        verify: () => Promise<void>;
+        totalCount: () => Promise<void>;
+        tokenURIs: () => Promise<void>;
+    } | null>;
+    function initWeb3(): Promise<{
+        web3Provider: null;
+        contracts: {};
+        web3: null;
+        account: number;
+        init: () => Promise<any | null>;
+        initWeb3: () => Promise<any | null>;
+        initContract: () => Promise<any>;
+        getAccount: () => Promise<number>;
+        useMetaMask: () => boolean;
+        sell: () => Promise<void>;
+        buy: () => Promise<void>;
+        verify: () => Promise<void>;
+        totalCount: () => Promise<void>;
+        tokenURIs: () => Promise<void>;
+    } | null>;
+    function initContract(): Promise<{
+        web3Provider: null;
+        contracts: {};
+        web3: null;
+        account: number;
+        init: () => Promise<any | null>;
+        initWeb3: () => Promise<any | null>;
+        initContract: () => Promise<any>;
+        getAccount: () => Promise<number>;
+        useMetaMask: () => boolean;
+        sell: () => Promise<void>;
+        buy: () => Promise<void>;
+        verify: () => Promise<void>;
+        totalCount: () => Promise<void>;
+        tokenURIs: () => Promise<void>;
+    }>;
+    function getAccount(): Promise<number>;
+    function useMetaMask(): boolean;
+    function sell(): Promise<void>;
+    function buy(): Promise<void>;
+    function verify(): Promise<void>;
+    function totalCount(): Promise<void>;
+    function tokenURIs(): Promise<void>;
+}

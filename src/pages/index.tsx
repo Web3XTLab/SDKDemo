@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import {isAuthenticated} from '@/lib/dapp-store-verify'
-import web3app from '../utils/web3app';
+import web3app from '@/src/utils/web3app';
 
 export default function Home()
 {

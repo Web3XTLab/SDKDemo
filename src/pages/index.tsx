@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
 import {Verify} from '../components/Verify';
+import {Sell} from '../components/Sell';
+import {Buy} from '../components/Buy';
 
 export default function Home()
 {
@@ -13,7 +15,17 @@ export default function Home()
       </Head>
 
       <main className={styles.main}>
-        <Verify/>
+        <h1 className={styles.title}>SDKDemo</h1>
+
+        <div className={styles.component}>
+          <Buy />
+        </div>
+        <div className={styles.component}>
+          <Sell />
+        </div>
+        <div className={styles.component}>
+          <Verify />
+        </div>
       </main>
     </div>
   );

@@ -7,5 +7,16 @@
   .main {
     width: 25%;
 
+    .title {
+      text-align: center;
+    }
+
+    .component {
+      margin-top: 50px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
   }
 }

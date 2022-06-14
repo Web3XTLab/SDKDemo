@@ -20,7 +20,7 @@ export function VerifyView(props: IVerifyViewProps)
             <Title>Verify Authentication</Title>
             <TextField disabled={loading} placeholder={'Enter app token id'} value={appTokenId} onChange={onAppTokenIdChange} />
             <div className={styles.buttonWrapper}>
-                <PrimaryButton disabled={loading} className={styles.button} onClick={onButtonClick}>Verify</PrimaryButton>
+                <PrimaryButton disabled={loading} className={styles.button} onClick={onButtonClick}>Verify!</PrimaryButton>
             </div>
             <div className={styles.resultText}>{resultText}</div>
         </div>);

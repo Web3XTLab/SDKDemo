@@ -8,7 +8,6 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc --project tsconfig.cjs.json && tsc --project tsconfig.esm.json",
-    "install": "npm run build",
     "test": "npm run test"
   },
   "devDependencies": {
@@ -16,6 +15,7 @@
     "typescript": "^4.7.3"
   },
   "dependencies": {
+    "@fluentui/react": "^8.74.0",
     "web3": "^1.7.3"
   }
 }

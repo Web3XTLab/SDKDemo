@@ -1,21 +1,16 @@
-import { IButtonProps, ITextFieldProps } from '@fluentui/react';
-import { useEffect, useState } from 'react';
-import web3app from '../../utils/web3app';
-import { BuyView } from './View';
+import {useWeb3App} from '@/src/hooks/useWeb3App';
+import {IButtonProps, ITextFieldProps} from '@fluentui/react';
+import {useState} from 'react';
+import {BuyView} from './View';
 
 export function Buy()
 {
+    const web3app = useWeb3App();
+
     const [loading, setLoading] = useState(false);
     const [appTokenId, setAppTokenId] = useState('');
     const [amount, setAmount] = useState('');
     const [resultText, setResultText] = useState('');
-
-    useEffect(() =>
-    {
-        setLoading(true);
-        web3app.init()
-            .then(() => setLoading(false));
-    }, []);
 
     const onAppTokenIdChange: ITextFieldProps['onChange'] = e =>
     {

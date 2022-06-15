@@ -1,25 +1,20 @@
+import {useWeb3App} from '@/src/hooks/useWeb3App';
 import {IButtonProps, ITextFieldProps} from '@fluentui/react';
-import {useEffect, useState} from 'react';
-import {SellView} from './View';
-import web3app from '../../utils/web3app';
+import {useState} from 'react';
+import {BuyView} from './View';
 
-export function Sell()
+export function Buy()
 {
+    const web3app = useWeb3App();
+
     const [loading, setLoading] = useState(false);
-    const [appTokenURI, setAppTokenURI] = useState('');
+    const [appTokenId, setAppTokenId] = useState('');
     const [amount, setAmount] = useState('');
     const [resultText, setResultText] = useState('');
 
-    useEffect(() =>
+    const onAppTokenIdChange: ITextFieldProps['onChange'] = e =>
     {
-        setLoading(true);
-        web3app.init()
-            .then(() => setLoading(false));
-    }, []);
-
-    const onAppTokenURIChange: ITextFieldProps['onChange'] = e =>
-    {
-        setAppTokenURI(e.currentTarget.value);
+        setAppTokenId(e.currentTarget.value);
     };
 
     const onAmountChange: ITextFieldProps['onChange'] = e =>
@@ -32,18 +27,18 @@ export function Sell()
         const amountNumber = Number.parseInt(amount);
 
         setLoading(true);
-        await web3app.sell(appTokenURI, amountNumber);
+        await web3app.buy(appTokenId, amountNumber);
         setLoading(false);
     };
 
 
     return (
-        <SellView
+        <BuyView
             loading={loading}
-            appTokenURI={appTokenURI}
+            appTokenId={appTokenId}
             amount={amount}
             resultText={resultText}
             onAmountChange={onAmountChange}
-            onAppTokenURIChange={onAppTokenURIChange}
+            onAppTokenIdChange={onAppTokenIdChange}
             onButtonClick={onButtonClick} />);
 }

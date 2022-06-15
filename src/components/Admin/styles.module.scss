@@ -1,0 +1,26 @@
+.Admin {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 5vh 0;
+
+    .main {
+        width: 50%;
+
+        .title {
+            text-align: center;
+        }
+
+        .component {
+            margin-top: 50px;
+            border-top: 1px solid #AAA;
+
+            &:first-of-type {
+                margin-top: 0;
+                border-top: none;
+            }
+        }
+    }
+}

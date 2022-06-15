@@ -1,17 +1,18 @@
-import {ConstrainMode, DetailsList, IButtonProps, IColumn, PrimaryButton, SelectionMode} from '@fluentui/react';
+import {DetailsList, IButtonProps, IColumn, PrimaryButton, SelectionMode, Spinner, SpinnerSize} from '@fluentui/react';
 import React from 'react';
 import {Title} from '../Title';
 import styles from './styles.module.scss';
 
 export interface IURIListViewProps
 {
+    loading: boolean;
     list: string[];
     onReloadButtonClick: IButtonProps['onClick'];
 }
 
 export function URIListView(props: IURIListViewProps)
 {
-    const {list, onReloadButtonClick} = props;
+    const {list, loading, onReloadButtonClick} = props;
 
     const columns: IColumn[] = [
         {
@@ -43,7 +44,11 @@ export function URIListView(props: IURIListViewProps)
                 <PrimaryButton onClick={onReloadButtonClick}>Reload</PrimaryButton>
             </div>
             <div className={styles.jsonWrapper}>
-                <DetailsList selectionMode={SelectionMode.none} items={items} columns={columns} />
+                {
+                    loading
+                        ? <Spinner size={SpinnerSize.large}>Loading...</Spinner>
+                        : <DetailsList selectionMode={SelectionMode.none} items={items} columns={columns} />
+                }
             </div>
         </div>);
 }

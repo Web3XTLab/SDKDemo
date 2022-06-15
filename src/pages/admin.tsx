@@ -1,1 +1,6 @@
-export {Admin as default} from '../components/Admin';
+import dynamic from 'next/dynamic';
+
+export default dynamic(
+    () =>
+        import('../components/Admin')
+            .then(({Admin}) => Admin));

@@ -6,6 +6,7 @@ import {Buy} from '../components/Buy';
 import {Web3AppContext} from '../contexts/Web3AppContext';
 import web3app from '../utils/web3app';
 import {Web3AppInitFrame} from '../components/Web3AppInitFrame';
+import {URIList} from '../components/URIList';
 
 export default function Home()
 {
@@ -15,12 +16,12 @@ export default function Home()
       <Web3AppInitFrame>
         <div className={styles.container}>
           <Head>
-            <title>SDK Demo</title>
+            <title>Admin Page</title>
             <link rel="icon" href="/favicon.ico" />
           </Head>
 
           <main className={styles.main}>
-            <h1 className={styles.title}>SDKDemo</h1>
+            <h1 className={styles.title}>Admin Page</h1>
 
             <div className={styles.component}>
               <Buy />
@@ -30,6 +31,9 @@ export default function Home()
             </div>
             <div className={styles.component}>
               <Verify />
+            </div>
+            <div className={styles.component}>
+              <URIList />
             </div>
           </main>
         </div>

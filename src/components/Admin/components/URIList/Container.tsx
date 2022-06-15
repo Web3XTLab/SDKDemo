@@ -10,7 +10,7 @@ export function URIList()
     useEffect(() =>
     {
         web3app.tokenURIs()
-            .then(result => setList(result));
+            .then(result => setList(result ?? []));
     }, [web3app]);
 
     const onReloadButtonClick: IURIListViewProps['onReloadButtonClick'] = async () =>

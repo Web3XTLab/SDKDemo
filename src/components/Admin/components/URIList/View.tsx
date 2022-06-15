@@ -46,7 +46,7 @@ export function URIListView(props: IURIListViewProps)
             <div className={styles.jsonWrapper}>
                 {
                     loading
-                        ? <Spinner size={SpinnerSize.large}>Loading...</Spinner>
+                        ? <Spinner size={SpinnerSize.large} label={'Loading...'}/>
                         : <DetailsList selectionMode={SelectionMode.none} items={items} columns={columns} />
                 }
             </div>

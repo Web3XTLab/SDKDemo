@@ -14,6 +14,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Use Node.js LTS
+      uses: actions/setup-node@v3
+      with:
+        node-version: lts/*
+        cache: 'npm'
+    - run: npm install
     - uses: actions/cache@v2
       with:
         path: |
@@ -22,12 +28,6 @@ jobs:
         key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
         restore-keys: |
           ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-    - name: Use Node.js LTS
-      uses: actions/setup-node@v3
-      with:
-        node-version: lts/*
-        cache: 'npm'
-    - run: npm install
     - run: npm run build
     - uses: crazy-max/ghaction-github-pages@v3.0.0
       with:

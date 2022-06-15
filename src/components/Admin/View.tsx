@@ -1,18 +1,13 @@
-import Head from 'next/head';
 import {Buy} from './components/Buy';
 import {Sell} from './components/Sell';
 import {URIList} from './components/URIList';
 import {Verify} from './components/Verify';
 import styles from './styles.module.scss';
 
-export function Admin()
+export function AdminView()
 {
     return (
         <div className={styles.Admin}>
-            <Head>
-                <title>Admin Page</title>
-            </Head>
-
             <main className={styles.main}>
                 <h1 className={styles.title}>Admin Page</h1>
                 <div className={styles.component}>

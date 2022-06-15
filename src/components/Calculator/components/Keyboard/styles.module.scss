@@ -1,0 +1,79 @@
+.Keyboard {
+    display: grid;
+    width: 100%;
+    height: 100%;
+
+    grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+    gap: 5px;
+
+    .button {
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+    }
+
+    .key {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .keyText {
+        font-size: 30px;
+        font-weight: lighter;
+        line-height: 1;
+    }
+
+    .operatorKey .keyText {
+        font-weight: bold;
+    }
+
+    .key-\. {
+        grid-row: 4/5;
+        grid-column: 3/4;
+    }
+
+    .key-0 {
+        grid-row: 4/5;
+        grid-column: 1/3;
+    }
+
+    .key-1 {
+        grid-row: 3/4;
+        grid-column: 1/2;
+    }
+
+    .key-2 {
+        grid-row: 3/4;
+        grid-column: 2/3;
+    }
+
+    .key-3 {
+        grid-row: 3/4;
+        grid-column: 3/4;
+    }
+
+    .key-4 {
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
+
+    .key-5 {
+        grid-row: 2/3;
+        grid-column: 2/3;
+    }
+
+    .key-6 {
+        grid-row: 2/3;
+        grid-column: 3/4;
+    }
+
+    .key-\= {
+        grid-row: 5/6;
+        grid-column: 1/5;
+
+        & .keyText {
+            font-weight: bold;
+        }
+    }
+}

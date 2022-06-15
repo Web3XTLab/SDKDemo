@@ -1,0 +1,32 @@
+.Calculator {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+        min-width: 250px;
+        max-width: 1000px;
+        min-height: 400px;
+        max-height: 800px;
+
+        padding: 10px;
+        width: 20%;
+        height: 50%;
+        border-radius: 5px;
+
+        border: 1px solid #666;
+
+        .screenWrapper {
+            height: 30%;
+            width: 100%;
+        }
+
+        .keyboardWrapper {
+            height: 70%;
+            width: 100%;
+        }
+    }
+}

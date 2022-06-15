@@ -1,4 +1,3 @@
-import {isAuthenticated} from '@/lib/dapp-store-verify';
 import {IButtonProps, ITextFieldProps} from '@fluentui/react';
 import {useEffect, useState} from 'react';
 import {SellView} from './View';

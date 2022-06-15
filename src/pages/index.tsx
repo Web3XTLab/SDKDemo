@@ -1,6 +1,1 @@
-export default function Index()
-{
-  return (
-    <div></div>
-  );
-}
+export {Index as default} from '../components/Index';

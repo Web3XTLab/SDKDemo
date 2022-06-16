@@ -1,15 +1,16 @@
 import React, {useMemo} from 'react';
 import styles from './styles.module.scss';
 import classnames from 'classnames';
-import {DefaultButton, PrimaryButton} from '@fluentui/react';
+import {DefaultButton, IButtonProps, PrimaryButton} from '@fluentui/react';
 
 export interface IKeyboardProps
 {
-
+    onKeyClickFactory: (key: string) => IButtonProps['onClick'];
 }
 
 export function Keyboard(props: IKeyboardProps)
 {
+    const {onKeyClickFactory} = props;
     const array = useMemo(() => new Array(10).fill(0), []);
 
     return (
@@ -18,38 +19,38 @@ export function Keyboard(props: IKeyboardProps)
                 array.map(
                     (_, i) =>
                         <div key={i} className={classnames(styles[`key-${i}`], styles.key)}>
-                            <DefaultButton className={styles.button}>
+                            <DefaultButton className={styles.button} onClick={onKeyClickFactory(i.toString())}>
                                 <div className={styles.keyText}>{i}</div>
                             </DefaultButton>
                         </div>)
             }
             <div className={classnames(styles[`key-.`], styles.key)}>
-                <DefaultButton className={styles.button}>
+                <DefaultButton className={styles.button} onClick={onKeyClickFactory('.')} >
                     <div className={styles.keyText}>.</div>
                 </DefaultButton>
             </div>
             <div className={classnames(styles[`key-+`], styles.key, styles.operatorKey)}>
-                <DefaultButton className={styles.button}>
+                <DefaultButton className={styles.button} onClick={onKeyClickFactory('+')}>
                     <div className={styles.keyText}>+</div>
                 </DefaultButton>
             </div>
             <div className={classnames(styles[`key--`], styles.key, styles.operatorKey)}>
-                <DefaultButton className={styles.button}>
+                <DefaultButton className={styles.button} onClick={onKeyClickFactory('-')}>
                     <div className={styles.keyText}>-</div>
                 </DefaultButton>
             </div>
             <div className={classnames(styles[`key-x`], styles.key, styles.operatorKey)}>
-                <DefaultButton className={styles.button}>
+                <DefaultButton className={styles.button} onClick={onKeyClickFactory('*')}>
                     <div className={styles.keyText}>×</div>
                 </DefaultButton>
             </div>
             <div className={classnames(styles[`key-/`], styles.key, styles.operatorKey)}>
-                <DefaultButton className={styles.button}>
+                <DefaultButton className={styles.button} onClick={onKeyClickFactory('/')}>
                     <div className={styles.keyText}>÷</div>
                 </DefaultButton>
             </div>
             <div className={classnames(styles[`key-=`], styles.key, styles.operatorKey)}>
-                <PrimaryButton className={styles.button}>
+                <PrimaryButton className={styles.button} onClick={onKeyClickFactory('=')}>
                     <div className={styles.keyText}>=</div>
                 </PrimaryButton>
             </div>

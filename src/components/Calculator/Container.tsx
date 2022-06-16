@@ -9,6 +9,13 @@ export function Calculator()
 
     const [isShowingResult, setIsShowingResult] = useState(true);
 
+    const reset = () =>
+    {
+        setScreenValue('0');
+        setFormula('0');
+        setIsShowingResult(true);
+    };
+
     const onKeyClickFactory: ICalculatorViewProps['onKeyClickFactory'] = key =>
     {
         return () =>
@@ -38,6 +45,10 @@ export function Calculator()
                 setFormula(result);
                 setIsShowingResult(true);
             }
+            else if (key === 'C')
+            {
+                reset();
+            }
             else
             {
                 if (isShowingResult)
@@ -55,5 +66,5 @@ export function Calculator()
         };
     };
 
-    return (<CalculatorView screenValue={screenValue} onKeyClickFactory={onKeyClickFactory} />);
+    return (<CalculatorView screenValue={screenValue} isShowingResult={isShowingResult} onKeyClickFactory={onKeyClickFactory} />);
 }

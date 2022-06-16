@@ -6,17 +6,18 @@ import styles from './styles.module.scss';
 export interface ICalculatorViewProps
 {
     screenValue: string;
+    isShowingResult: boolean;
     onKeyClickFactory: (key: string) => IButtonProps['onClick'];
 }
 
 export function CalculatorView(props: ICalculatorViewProps)
 {
-    const {screenValue, onKeyClickFactory} = props;
+    const {screenValue, isShowingResult, onKeyClickFactory} = props;
     return (
         <div className={styles.Calculator} >
             <div className={styles.container}>
                 <div className={styles.screenWrapper}>
-                    <Screen value={screenValue} />
+                    <Screen value={screenValue} isShowingResult={isShowingResult} />
                 </div>
                 <div className={styles.keyboardWrapper}>
                     <Keyboard onKeyClickFactory={onKeyClickFactory} />

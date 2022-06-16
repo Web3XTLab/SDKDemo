@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './styles.module.scss';
 
-export interface IScreenProps
+export interface IScreenViewProps
 {
     value: string;
 }
 
-export function Screen(props: IScreenProps)
+export function ScreenView(props: IScreenViewProps)
 {
     const {value} = props;
     return (

@@ -24,6 +24,11 @@ export function Keyboard(props: IKeyboardProps)
                             </DefaultButton>
                         </div>)
             }
+            <div className={classnames(styles[`key-C`], styles.key)}>
+                <PrimaryButton className={styles.button} onClick={onKeyClickFactory('C')} >
+                    <div className={styles.keyText}>C</div>
+                </PrimaryButton>
+            </div>
             <div className={classnames(styles[`key-.`], styles.key)}>
                 <DefaultButton className={styles.button} onClick={onKeyClickFactory('.')} >
                     <div className={styles.keyText}>.</div>

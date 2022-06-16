@@ -1,5 +1,6 @@
 import {useAuthenticate} from '@/src/hooks/useAuthenticate';
 import {calculate} from '@/src/utils/calculate';
+import Head from 'next/head';
 import {useState} from 'react';
 import {CalculatorView, ICalculatorViewProps} from './View';
 
@@ -69,11 +70,16 @@ export function Calculator()
     };
 
     return (
-        <CalculatorView
-            screenValue={screenValue}
-            isShowingResult={isShowingResult}
-            loading={authenticateResult.loading}
-            isAuthenticated={authenticateResult.result}
-            onKeyClickFactory={onKeyClickFactory} />
+        <>
+            <Head>
+                <title>Calculator</title>
+            </Head>
+            <CalculatorView
+                screenValue={screenValue}
+                isShowingResult={isShowingResult}
+                loading={authenticateResult.loading}
+                isAuthenticated={authenticateResult.result}
+                onKeyClickFactory={onKeyClickFactory} />
+        </>
     );
 }

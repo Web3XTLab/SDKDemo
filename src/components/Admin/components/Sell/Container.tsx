@@ -7,37 +7,55 @@ export function Sell()
 {
     const web3app = useWeb3App();
     const [loading, setLoading] = useState(false);
+    const [name, setName] = useState('');
     const [appTokenURI, setAppTokenURI] = useState('');
-    const [amount, setAmount] = useState('');
+    const [price, setPrice] = useState('');
     const [resultText, setResultText] = useState('');
+
+    const onNameChange: ITextFieldProps['onChange'] = e =>
+    {
+        setName(e.currentTarget.value);
+    };
 
     const onAppTokenURIChange: ITextFieldProps['onChange'] = e =>
     {
         setAppTokenURI(e.currentTarget.value);
     };
 
-    const onAmountChange: ITextFieldProps['onChange'] = e =>
+    const onPriceChange: ITextFieldProps['onChange'] = e =>
     {
-        setAmount(e.currentTarget.value);
+        setPrice(e.currentTarget.value);
     };
 
     const onButtonClick: IButtonProps['onClick'] = async () =>
     {
-        const amountNumber = Number.parseInt(amount);
+        setResultText('');
+        const priceNumber = Number.parseInt(price);
 
         setLoading(true);
-        await web3app.sell(appTokenURI, amountNumber);
+        const result = await web3app.sell(name, appTokenURI, priceNumber);
         setLoading(false);
+
+        if (result !== undefined)
+        {
+            setResultText('Done');
+        }
+        else
+        {
+            setResultText('Something is wrong');
+        }
     };
 
 
     return (
         <SellView
             loading={loading}
+            name={name}
             appTokenURI={appTokenURI}
-            amount={amount}
+            price={price}
             resultText={resultText}
-            onAmountChange={onAmountChange}
+            onNameChange={onNameChange}
+            onAmountChange={onPriceChange}
             onAppTokenURIChange={onAppTokenURIChange}
             onButtonClick={onButtonClick} />);
 }

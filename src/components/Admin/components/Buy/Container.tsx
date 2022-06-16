@@ -9,7 +9,7 @@ export function Buy()
 
     const [loading, setLoading] = useState(false);
     const [appTokenId, setAppTokenId] = useState('');
-    const [amount, setAmount] = useState('');
+    const [price, setPrice] = useState('');
     const [resultText, setResultText] = useState('');
 
     const onAppTokenIdChange: ITextFieldProps['onChange'] = e =>
@@ -17,18 +17,28 @@ export function Buy()
         setAppTokenId(e.currentTarget.value);
     };
 
-    const onAmountChange: ITextFieldProps['onChange'] = e =>
+    const onPriceChange: ITextFieldProps['onChange'] = e =>
     {
-        setAmount(e.currentTarget.value);
+        setPrice(e.currentTarget.value);
     };
 
     const onButtonClick: IButtonProps['onClick'] = async () =>
     {
-        const amountNumber = Number.parseInt(amount);
+        setResultText('');
+        const priceNumber = Number.parseInt(price);
 
         setLoading(true);
-        await web3app.buy(appTokenId, amountNumber);
+        const result = await web3app.buy(appTokenId, priceNumber);
         setLoading(false);
+
+        if (result !== undefined)
+        {
+            setResultText('Done');
+        }
+        else
+        {
+            setResultText('Something is wrong');
+        }
     };
 
 
@@ -36,9 +46,9 @@ export function Buy()
         <BuyView
             loading={loading}
             appTokenId={appTokenId}
-            amount={amount}
+            price={price}
             resultText={resultText}
-            onAmountChange={onAmountChange}
+            onPriceChange={onPriceChange}
             onAppTokenIdChange={onAppTokenIdChange}
             onButtonClick={onButtonClick} />);
 }

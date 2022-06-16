@@ -1,3 +1,4 @@
+import {AppInfo} from './components/AppInfo';
 import {Buy} from './components/Buy';
 import {Sell} from './components/Sell';
 import {URIList} from './components/URIList';
@@ -18,6 +19,9 @@ export function AdminView()
                 </div>
                 <div className={styles.component}>
                     <Verify />
+                </div>
+                <div className={styles.component}>
+                    <AppInfo />
                 </div>
                 <div className={styles.component}>
                     <URIList />

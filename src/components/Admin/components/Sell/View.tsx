@@ -6,7 +6,7 @@ export interface ISellViewProps
 {
     loading: boolean;
     appTokenURI: string;
-    amount: string;
+    price: string;
     resultText: string;
     onAppTokenURIChange: ITextFieldProps['onChange'];
     onAmountChange: ITextFieldProps['onChange'];
@@ -15,7 +15,7 @@ export interface ISellViewProps
 
 export function SellView(props: ISellViewProps)
 {
-    const {appTokenURI, loading, amount, resultText, onAppTokenURIChange, onAmountChange, onButtonClick} = props;
+    const {appTokenURI, loading, price, resultText, onAppTokenURIChange, onAmountChange, onButtonClick} = props;
     return (
         <div className={styles.Sell}>
             <Title>Sell</Title>
@@ -23,7 +23,7 @@ export function SellView(props: ISellViewProps)
                 <TextField disabled={loading} placeholder={'Enter app token URI'} value={appTokenURI} onChange={onAppTokenURIChange} />
             </div>
             <div className={styles.textFieldWrapper}>
-                <TextField disabled={loading} placeholder={'Enter price'} value={amount} onChange={onAmountChange} />
+                <TextField disabled={loading} placeholder={'Enter price'} value={price} onChange={onAmountChange} />
             </div>
             <div className={styles.buttonWrapper}>
                 <PrimaryButton disabled={loading} className={styles.button} onClick={onButtonClick}>Sell!</PrimaryButton>

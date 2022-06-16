@@ -6,16 +6,16 @@ export interface IBuyViewProps
 {
     loading: boolean;
     appTokenId: string;
-    amount: string;
+    price: string;
     resultText: string;
     onAppTokenIdChange: ITextFieldProps['onChange'];
-    onAmountChange: ITextFieldProps['onChange'];
+    onPriceChange: ITextFieldProps['onChange'];
     onButtonClick: IButtonProps['onClick'];
 }
 
 export function BuyView(props: IBuyViewProps)
 {
-    const {appTokenId, loading, amount, resultText, onAppTokenIdChange: onAppTokenURIChange, onAmountChange, onButtonClick} = props;
+    const {appTokenId, loading, price, resultText, onAppTokenIdChange: onAppTokenURIChange, onPriceChange: onAmountChange, onButtonClick} = props;
     return (
         <div className={styles.Buy}>
             <Title>Buy</Title>
@@ -23,7 +23,7 @@ export function BuyView(props: IBuyViewProps)
                 <TextField disabled={loading} placeholder={'Enter app token id'} value={appTokenId} onChange={onAppTokenURIChange} />
             </div>
             <div className={styles.textFieldWrapper}>
-                <TextField disabled={loading} placeholder={'Enter price'} value={amount} onChange={onAmountChange} />
+                <TextField disabled={loading} placeholder={'Enter price'} value={price} onChange={onAmountChange} />
             </div>
             <div className={styles.buttonWrapper}>
                 <PrimaryButton disabled={loading} className={styles.button} onClick={onButtonClick}>Buy!</PrimaryButton>

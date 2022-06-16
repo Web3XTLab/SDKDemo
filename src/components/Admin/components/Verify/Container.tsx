@@ -16,6 +16,7 @@ export function Verify()
 
     const onButtonClick: IButtonProps['onClick'] = async () =>
     {
+        setResultText('');
         const appTokenIdNumber = Number.parseInt(appTokenId);
         if (Number.isNaN(appTokenIdNumber))
         {

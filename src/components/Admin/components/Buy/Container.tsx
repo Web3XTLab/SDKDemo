@@ -24,6 +24,7 @@ export function Buy()
 
     const onButtonClick: IButtonProps['onClick'] = async () =>
     {
+        setResultText('');
         const amountNumber = Number.parseInt(price);
 
         setLoading(true);

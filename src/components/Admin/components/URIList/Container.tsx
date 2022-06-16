@@ -10,7 +10,7 @@ export function URIList()
 
     useEffect(() =>
     {
-        setLoading(loading);
+        setLoading(true);
         web3app.tokenURIs()
             .then(result => setList(result ?? []))
             .finally(() => setLoading(false));

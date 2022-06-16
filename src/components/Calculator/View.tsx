@@ -19,7 +19,7 @@ export function CalculatorView(props: ICalculatorViewProps)
         <div className={styles.Calculator} >
             {
                 loading
-                    ? <Spinner title={'Loading...'} size={SpinnerSize.large} />
+                    ? <Spinner label={'Loading...'} size={SpinnerSize.large} />
                     : isAuthenticated 
                         ? (<div className={styles.container}>
                             <div className={styles.screenWrapper}>

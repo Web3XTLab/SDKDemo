@@ -1,6 +1,6 @@
 # SDK Demo App
 
-Demo applications that demonstrates the usage of DApp SDK.
+Demo applications that demonstrate the usage of DApp SDK.
 
 ## Description
 

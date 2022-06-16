@@ -1,7 +1,7 @@
-import { useWeb3App } from '@/src/hooks/useWeb3App';
-import { IButtonProps, ITextFieldProps } from '@fluentui/react';
-import { useState } from 'react';
-import { BuyView } from './View';
+import {useWeb3App} from '@/src/hooks/useWeb3App';
+import {IButtonProps, ITextFieldProps} from '@fluentui/react';
+import {useState} from 'react';
+import {BuyView} from './View';
 
 export function Buy()
 {

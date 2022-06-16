@@ -17,7 +17,7 @@ export function Buy()
         setAppTokenId(e.currentTarget.value);
     };
 
-    const onAmountChange: ITextFieldProps['onChange'] = e =>
+    const onPriceChange: ITextFieldProps['onChange'] = e =>
     {
         setPrice(e.currentTarget.value);
     };
@@ -47,7 +47,7 @@ export function Buy()
             appTokenId={appTokenId}
             price={price}
             resultText={resultText}
-            onPriceChange={onAmountChange}
+            onPriceChange={onPriceChange}
             onAppTokenIdChange={onAppTokenIdChange}
             onButtonClick={onButtonClick} />);
 }

@@ -23,7 +23,7 @@ export function BuyView(props: IBuyViewProps)
                 <TextField disabled={loading} placeholder={'Enter app token id'} value={appTokenId} onChange={onAppTokenURIChange} />
             </div>
             <div className={styles.textFieldWrapper}>
-                <TextField disabled={loading} placeholder={'Enter amount'} value={amount} onChange={onAmountChange} />
+                <TextField disabled={loading} placeholder={'Enter price'} value={amount} onChange={onAmountChange} />
             </div>
             <div className={styles.buttonWrapper}>
                 <PrimaryButton disabled={loading} className={styles.button} onClick={onButtonClick}>Buy!</PrimaryButton>

@@ -23,7 +23,7 @@ export function SellView(props: ISellViewProps)
                 <TextField disabled={loading} placeholder={'Enter app token URI'} value={appTokenURI} onChange={onAppTokenURIChange} />
             </div>
             <div className={styles.textFieldWrapper}>
-                <TextField disabled={loading} placeholder={'Enter amount'} value={amount} onChange={onAmountChange} />
+                <TextField disabled={loading} placeholder={'Enter price'} value={amount} onChange={onAmountChange} />
             </div>
             <div className={styles.buttonWrapper}>
                 <PrimaryButton disabled={loading} className={styles.button} onClick={onButtonClick}>Sell!</PrimaryButton>

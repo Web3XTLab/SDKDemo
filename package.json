@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@fluentui/react": "^8.74.0",
-    "dapp-store-verify": "^0.0.3",
+    "classnames": "^2.3.1",
+    "dapp-store-verify": "^0.0.4",
     "electron": "^19.0.4",
     "next": "^12.1.6",
     "react": "^17.0.0",

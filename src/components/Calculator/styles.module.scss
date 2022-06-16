@@ -12,6 +12,10 @@
         min-height: 400px;
         max-height: 800px;
 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
         padding: 10px;
         width: 20%;
         height: 50%;
@@ -20,7 +24,7 @@
         border: 1px solid #666;
 
         .screenWrapper {
-            height: 30%;
+            height: calc(30% - 10px);
             width: 100%;
         }
 

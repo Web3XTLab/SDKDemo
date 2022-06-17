@@ -17,28 +17,20 @@ export function Verify()
     const onButtonClick: IButtonProps['onClick'] = async () =>
     {
         setResultText('');
-        const appTokenIdNumber = Number.parseInt(appTokenId);
-        if (Number.isNaN(appTokenIdNumber))
+        setLoading(true);
+        const result = await isAuthenticated(appTokenId);
+        setLoading(false);
+        if (result)
         {
-            setResultText('Invalid app token id, please check again.');
+            setResultText('The current consumer passes the authentication.');
+        }
+        else if (result === false)
+        {
+            setResultText('The current consumer does not pass the authentication.');
         }
         else
         {
-            setLoading(true);
-            const result = await isAuthenticated(appTokenIdNumber);
-            setLoading(false);
-            if (result)
-            {
-                setResultText('The current consumer passes the authentication.');
-            }
-            else if(result === false)
-            {
-                setResultText('The current consumer does not pass the authentication.');
-            }
-            else
-            {
-                setResultText('Something goes wrong...');
-            }
+            setResultText('Something goes wrong...');
         }
     };
 

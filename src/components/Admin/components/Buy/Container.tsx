@@ -25,10 +25,9 @@ export function Buy()
     const onButtonClick: IButtonProps['onClick'] = async () =>
     {
         setResultText('');
-        const priceNumber = Number.parseInt(price);
 
         setLoading(true);
-        const result = await web3app.buy(appTokenId, priceNumber);
+        const result = await web3app.buy(appTokenId, price);
         setLoading(false);
 
         if (result !== undefined)

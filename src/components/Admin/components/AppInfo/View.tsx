@@ -1,14 +1,13 @@
 import {IButtonProps, ITextFieldProps, PrimaryButton, TextField} from '@fluentui/react';
 import React from 'react';
 import {Title} from '../Title';
-import {IAppInfo} from './IAppInfo';
 import styles from './styles.module.scss';
 
 export interface IAppInfoViewProps
 {
     loading: boolean;
     appTokenId: string;
-    appInfo: IAppInfo | null;
+    appInfo: object | null;
     onAppTokenIdChange: ITextFieldProps['onChange'];
     onButtonClick: IButtonProps['onClick'];
 }

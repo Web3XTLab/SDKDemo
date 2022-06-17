@@ -14,7 +14,7 @@ export function useAuthenticate()
         setLoading(true);
         if (Array.isArray(appTokenId))
         {
-            isAuthenticated(Number.parseInt(appTokenId[0]))
+            isAuthenticated(appTokenId[0])
                 .then(result =>
                 {
                     setResult(result);
@@ -23,7 +23,7 @@ export function useAuthenticate()
         }
         else if (typeof appTokenId === 'string')
         {
-            isAuthenticated(Number.parseInt(appTokenId))
+            isAuthenticated(appTokenId)
                 .then(result =>
                 {
                     setResult(result);

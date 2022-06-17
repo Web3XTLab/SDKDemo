@@ -30,10 +30,9 @@ export function Sell()
     const onButtonClick: IButtonProps['onClick'] = async () =>
     {
         setResultText('');
-        const priceNumber = Number.parseInt(price);
 
         setLoading(true);
-        const result = await web3app.sell(name, appTokenURI, priceNumber);
+        const result = await web3app.sell(name, appTokenURI, price);
         setLoading(false);
 
         if (result !== undefined)

@@ -14,9 +14,7 @@
   "ast": {
     "absolutePath": "@openzeppelin/contracts/utils/Strings.sol",
     "exportedSymbols": {
-      "Strings": [
-        1748
-      ]
+      "Strings": [1748]
     },
     "id": 1749,
     "license": "MIT",
@@ -24,12 +22,7 @@
     "nodes": [
       {
         "id": 1547,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "86:23:8"
       },
@@ -46,9 +39,7 @@
         },
         "fullyImplemented": true,
         "id": 1748,
-        "linearizedBaseContracts": [
-          1748
-        ],
+        "linearizedBaseContracts": [1748],
         "name": "Strings",
         "nameLocation": "154:7:8",
         "nodeType": "ContractDefinition",
@@ -183,9 +174,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    1567
-                  ],
+                  "assignments": [1567],
                   "declarations": [
                     {
                       "constant": false,
@@ -232,9 +221,7 @@
                   "src": "657:20:8"
                 },
                 {
-                  "assignments": [
-                    1571
-                  ],
+                  "assignments": [1571],
                   "declarations": [
                     {
                       "constant": false,
@@ -406,9 +393,7 @@
                   "src": "711:75:8"
                 },
                 {
-                  "assignments": [
-                    1586
-                  ],
+                  "assignments": [1586],
                   "declarations": [
                     {
                       "constant": false,
@@ -1159,9 +1144,7 @@
                   }
                 },
                 {
-                  "assignments": [
-                    1646
-                  ],
+                  "assignments": [1646],
                   "declarations": [
                     {
                       "constant": false,
@@ -1208,9 +1191,7 @@
                   "src": "1283:20:8"
                 },
                 {
-                  "assignments": [
-                    1650
-                  ],
+                  "assignments": [1650],
                   "declarations": [
                     {
                       "constant": false,
@@ -1439,10 +1420,7 @@
                       "id": 1665,
                       "name": "toHexString",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        1671,
-                        1747
-                      ],
+                      "overloadedDeclarations": [1671, 1747],
                       "referencedDeclaration": 1747,
                       "src": "1432:11:8",
                       "typeDescriptions": {
@@ -1566,9 +1544,7 @@
               "src": "1678:351:8",
               "statements": [
                 {
-                  "assignments": [
-                    1682
-                  ],
+                  "assignments": [1682],
                   "declarations": [
                     {
                       "constant": false,
@@ -2111,9 +2087,7 @@
                   },
                   "id": 1733,
                   "initializationExpression": {
-                    "assignments": [
-                      1705
-                    ],
+                    "assignments": [1705],
                     "declarations": [
                       {
                         "constant": false,
@@ -2342,10 +2316,7 @@
                       "id": 1734,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1936:7:8",
                       "typeDescriptions": {
@@ -2564,7 +2535,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-15T08:38:10.767Z",
+  "updatedAt": "2022-06-29T01:47:05.207Z",
   "devdoc": {
     "details": "String operations.",
     "kind": "dev",

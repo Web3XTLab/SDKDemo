@@ -345,15 +345,9 @@
   "ast": {
     "absolutePath": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
     "exportedSymbols": {
-      "IERC165": [
-        1784
-      ],
-      "IERC721": [
-        981
-      ],
-      "IERC721Metadata": [
-        1154
-      ]
+      "IERC165": [1784],
+      "IERC721": [981],
+      "IERC721Metadata": [1154]
     },
     "id": 1155,
     "license": "MIT",
@@ -361,12 +355,7 @@
     "nodes": [
       {
         "id": 1129,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "112:23:4"
       },
@@ -408,11 +397,7 @@
         },
         "fullyImplemented": false,
         "id": 1154,
-        "linearizedBaseContracts": [
-          1154,
-          981,
-          1784
-        ],
+        "linearizedBaseContracts": [1154, 981, 1784],
         "name": "IERC721Metadata",
         "nameLocation": "307:15:4",
         "nodeType": "ContractDefinition",
@@ -642,7 +627,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-15T08:38:10.765Z",
+  "updatedAt": "2022-06-29T01:47:05.204Z",
   "devdoc": {
     "details": "See https://eips.ethereum.org/EIPS/eip-721",
     "kind": "dev",

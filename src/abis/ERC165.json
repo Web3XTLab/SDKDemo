@@ -34,12 +34,8 @@
   "ast": {
     "absolutePath": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
     "exportedSymbols": {
-      "ERC165": [
-        1772
-      ],
-      "IERC165": [
-        1784
-      ]
+      "ERC165": [1772],
+      "IERC165": [1784]
     },
     "id": 1773,
     "license": "MIT",
@@ -47,12 +43,7 @@
     "nodes": [
       {
         "id": 1750,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "99:23:9"
       },
@@ -94,18 +85,13 @@
         },
         "fullyImplemented": true,
         "id": 1772,
-        "linearizedBaseContracts": [
-          1772,
-          1784
-        ],
+        "linearizedBaseContracts": [1772, 1784],
         "name": "ERC165",
         "nameLocation": "744:6:9",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "baseFunctions": [
-              1783
-            ],
+            "baseFunctions": [1783],
             "body": {
               "id": 1770,
               "nodeType": "Block",
@@ -319,7 +305,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-15T08:38:10.768Z",
+  "updatedAt": "2022-06-29T01:47:05.207Z",
   "devdoc": {
     "details": "Implementation of the {IERC165} interface. Contracts that want to implement ERC165 should inherit from this contract and override {supportsInterface} to check for the additional interface id that will be supported. For example: ```solidity function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {     return interfaceId == type(MyInterface).interfaceId || super.supportsInterface(interfaceId); } ``` Alternatively, {ERC165Storage} provides an easier to use but more expensive implementation.",
     "kind": "dev",

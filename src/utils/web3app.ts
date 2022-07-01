@@ -1,9 +1,9 @@
 import Web3 from "web3";
-import { provider } from 'web3-core';
-import { AbiItem } from 'web3-utils';
+import { provider } from "web3-core";
+import { AbiItem } from "web3-utils";
 import { TransactionReceipt } from "ethereum-abi-types-generator";
 import AppStoreAbi from "@/src/abis/AppStore.json";
-import { ContractContext } from '@/src/types/AppStore';
+import { ContractContext } from "@/src/types/AppStore";
 
 interface IWeb3App {
   web3Provider: null | provider;
@@ -19,13 +19,19 @@ interface IWeb3App {
   initContract: (web3instance: Web3) => Promise<IWeb3App | null>;
   getAccount: () => Promise<string>;
   checkAvailable: () => boolean;
-  sell: (name: string, tokenURI: string, price: string) => Promise<TransactionReceipt | null>;
+  sell: (
+    name: string,
+    tokenURI: string,
+    price: string
+  ) => Promise<TransactionReceipt | null>;
   buy: (tokenId: string, price: string) => Promise<TransactionReceipt | null>;
   verify: (tokenId: string) => Promise<boolean>;
   totalCount: () => Promise<string>;
   tokenURI: (tokenId: string) => Promise<string>;
   tokenURIs: () => Promise<string[]>;
   getAppInfo: (tokenId: string) => Promise<Record<string, any>>;
+  getTokenIdsBySeller: (seller: string) => Promise<string[] | undefined>;
+  getTokenIdsByBuyer: (buyer: string) => Promise<string[] | undefined>;
 }
 
 const App: IWeb3App = {
@@ -51,7 +57,9 @@ const App: IWeb3App = {
         App.web3Provider = (window as any).ethereum;
         try {
           // Request account access
-          await (window as any).ethereum.request({ method: "eth_requestAccounts" });
+          await (window as any).ethereum.request({
+            method: "eth_requestAccounts",
+          });
         } catch (e) {
           // User denied account access...
           console.error("User denied account access");
@@ -83,7 +91,10 @@ const App: IWeb3App = {
     if (!networkId) return null;
     App.networkId = networkId;
 
-    const deployedNetwork = AppStoreAbi.networks[`${networkId}` as keyof typeof AppStoreAbi['networks']];
+    const deployedNetwork =
+      AppStoreAbi.networks[
+        `${networkId}` as keyof typeof AppStoreAbi["networks"]
+      ];
     if (!deployedNetwork?.address) return null;
     App.networkAddress = deployedNetwork?.address;
 
@@ -109,7 +120,7 @@ const App: IWeb3App = {
 
   getAccount: async () => {
     if (App.account) return App.account;
-    const accounts = await App.web3?.eth.getAccounts() || [];
+    const accounts = (await App.web3?.eth.getAccounts()) || [];
     App.account = accounts[0];
     return App.account;
   },
@@ -123,16 +134,15 @@ const App: IWeb3App = {
   sell: async (name, tokenURI, price) => {
     try {
       const account = await App.getAccount();
-      console.log("account", account);
 
-      App.contracts.AppStore?.events
-        .OnSell({})
-        .on("data", (event) => {
-          console.log("sell", event);
-        })
-        .on("error", (error) => {
-          console.log(error);
-        });
+      // App.contracts.AppStore?.events
+      //   .OnSell({})
+      //   .on('data', event => {
+      //     console.log('sell', event);
+      //   })
+      //   .on('error', error => {
+      //     console.log(error);
+      //   });
 
       const result = await App.contracts.AppStore?.methods
         .sell(name, tokenURI, price)
@@ -149,16 +159,15 @@ const App: IWeb3App = {
   buy: async (tokenId, price) => {
     try {
       const account = await App.getAccount();
-      console.log("account", account);
 
-      App.contracts.AppStore?.events
-        .OnBuy({})
-        .on("data", (event) => {
-          console.log("buy", event);
-        })
-        .on("error", (error) => {
-          console.log(error);
-        });
+      // App.contracts.AppStore?.events
+      //   .OnBuy({})
+      //   .on('data', event => {
+      //     console.log('buy', event);
+      //   })
+      //   .on('error', error => {
+      //     console.log(error);
+      //   });
 
       const result = await App.contracts.AppStore?.methods
         .buy(tokenId)
@@ -174,26 +183,26 @@ const App: IWeb3App = {
   verify: async (tokenId) => {
     try {
       const account = await App.getAccount();
-      console.log("account", account);
 
-      const result = await (App.contracts.AppStore?.methods
-        .verify(tokenId, account) as any).call();
+      const result = await (
+        App.contracts.AppStore?.methods.verify(tokenId, account) as any
+      ).call();
 
       return !!result;
     } catch (e) {
       console.error(e);
-      return false
+      return false;
     }
   },
 
   totalCount: async () => {
     try {
       const count = await App.contracts.AppStore?.methods.totalCount().call();
-      if (!count) return '0';
+      if (!count) return "0";
       return count;
     } catch (e) {
       console.error(e);
-      return '0';
+      return "0";
     }
   },
 
@@ -202,11 +211,11 @@ const App: IWeb3App = {
       const uri = await App.contracts.AppStore?.methods
         .getTokenURI(tokenId)
         .call();
-      if (!uri) return '';
+      if (!uri) return "";
       return uri;
     } catch (e) {
       console.error(e);
-      return '';
+      return "";
     }
   },
 
@@ -215,7 +224,9 @@ const App: IWeb3App = {
     try {
       const count = await App.contracts.AppStore?.methods.totalCount().call();
       for (let i = 0; i < Number(count); i++) {
-        const item = await App.contracts.AppStore?.methods.getTokenURI(`${i}`).call();
+        const item = await App.contracts.AppStore?.methods
+          .getTokenURI(`${i}`)
+          .call();
         if (item) items.push(item);
       }
     } catch (e) {
@@ -226,17 +237,47 @@ const App: IWeb3App = {
   },
 
   getAppInfo: async (tokenId) => {
-    const name = await App.contracts.AppStore?.methods.getAppName(tokenId).call() || '';
-    const price = await App.contracts.AppStore?.methods.getAppPrice(tokenId).call() || '';
-    const seller = await App.contracts.AppStore?.methods.getAppSeller(tokenId).call() || '';
-    const buyers = await App.contracts.AppStore?.methods.getAppBuyers(tokenId).call() || [];
+    const name =
+      (await App.contracts.AppStore?.methods.getAppName(tokenId).call()) || "";
+    const price =
+      (await App.contracts.AppStore?.methods.getAppPrice(tokenId).call()) || "";
+    const seller =
+      (await App.contracts.AppStore?.methods.getAppSeller(tokenId).call()) ||
+      "";
+    const buyers =
+      (await App.contracts.AppStore?.methods.getAppBuyers(tokenId).call()) ||
+      [];
 
     return {
       name,
       price,
       seller,
       buyers,
+    };
+  },
+
+  getTokenIdsBySeller: async (seller) => {
+    let soldTokenIds: string[] | undefined;
+    try {
+      soldTokenIds = await App.contracts.AppStore?.methods
+        .getTokenIdsBySeller(seller)
+        .call();
+    } catch (e) {
+      console.error(e);
     }
+    return soldTokenIds;
+  },
+
+  getTokenIdsByBuyer: async (buyer) => {
+    let boughtTokenIds: string[] | undefined;
+    try {
+      boughtTokenIds = await App.contracts.AppStore?.methods
+        .getTokenIdsByBuyer(buyer)
+        .call();
+    } catch (e) {
+      console.error(e);
+    }
+    return boughtTokenIds;
   },
 };
 

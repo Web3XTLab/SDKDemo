@@ -34,9 +34,7 @@
   "ast": {
     "absolutePath": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
     "exportedSymbols": {
-      "IERC165": [
-        1784
-      ]
+      "IERC165": [1784]
     },
     "id": 1785,
     "license": "MIT",
@@ -44,12 +42,7 @@
     "nodes": [
       {
         "id": 1774,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "100:23:10"
       },
@@ -66,9 +59,7 @@
         },
         "fullyImplemented": false,
         "id": 1784,
-        "linearizedBaseContracts": [
-          1784
-        ],
+        "linearizedBaseContracts": [1784],
         "name": "IERC165",
         "nameLocation": "415:7:10",
         "nodeType": "ContractDefinition",
@@ -176,7 +167,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-15T08:38:10.768Z",
+  "updatedAt": "2022-06-29T01:47:05.208Z",
   "devdoc": {
     "details": "Interface of the ERC165 standard, as defined in the https://eips.ethereum.org/EIPS/eip-165[EIP]. Implementers can declare support of contract interfaces, which can then be queried by others ({ERC165Checker}). For an implementation, see {ERC165}.",
     "kind": "dev",

@@ -14,9 +14,7 @@
   "ast": {
     "absolutePath": "@openzeppelin/contracts/utils/Counters.sol",
     "exportedSymbols": {
-      "Counters": [
-        1545
-      ]
+      "Counters": [1545]
     },
     "id": 1546,
     "license": "MIT",
@@ -24,12 +22,7 @@
     "nodes": [
       {
         "id": 1473,
-        "literals": [
-          "solidity",
-          "^",
-          "0.8",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.8", ".0"],
         "nodeType": "PragmaDirective",
         "src": "87:23:7"
       },
@@ -46,9 +39,7 @@
         },
         "fullyImplemented": true,
         "id": 1545,
-        "linearizedBaseContracts": [
-          1545
-        ],
+        "linearizedBaseContracts": [1545],
         "name": "Counters",
         "nameLocation": "432:8:7",
         "nodeType": "ContractDefinition",
@@ -365,9 +356,7 @@
               "src": "1127:176:7",
               "statements": [
                 {
-                  "assignments": [
-                    1510
-                  ],
+                  "assignments": [1510],
                   "declarations": [
                     {
                       "constant": false,
@@ -508,10 +497,7 @@
                       "id": 1514,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
+                      "overloadedDeclarations": [4294967278, 4294967278],
                       "referencedDeclaration": 4294967278,
                       "src": "1177:7:7",
                       "typeDescriptions": {
@@ -843,7 +829,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-06-15T08:38:10.767Z",
+  "updatedAt": "2022-06-29T01:47:05.206Z",
   "devdoc": {
     "author": "Matt Condon (@shrugs)",
     "details": "Provides counters that can only be incremented, decremented or reset. This can be used e.g. to track the number of elements in a mapping, issuing ERC721 ids, or counting request ids. Include with `using Counters for Counters.Counter;`",

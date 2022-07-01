@@ -101,7 +101,9 @@ export type AppStoreMethodNames =
   | "getAppBuyers"
   | "sell"
   | "buy"
-  | "verify";
+  | "verify"
+  | "getTokenIdsBySeller"
+  | "getTokenIdsByBuyer";
 export interface OnBuyEventEmittedResponse {
   buyer: string;
   seller: string;
@@ -219,4 +221,20 @@ export interface AppStore {
    * @param buyer Type: address, Indexed: false
    */
   verify(tokenId: string, buyer: string): MethodReturnContext;
+  /**
+   * Payable: false
+   * Constant: true
+   * StateMutability: view
+   * Type: function
+   * @param seller Type: address, Indexed: false
+   */
+  getTokenIdsBySeller(seller: string): MethodConstantReturnContext<string[]>;
+  /**
+   * Payable: false
+   * Constant: true
+   * StateMutability: view
+   * Type: function
+   * @param buyer Type: address, Indexed: false
+   */
+  getTokenIdsByBuyer(buyer: string): MethodConstantReturnContext<string[]>;
 }

@@ -5,7 +5,6 @@ import {IndexView} from './View';
 export function Index()
 {
     const items = [
-        {title: 'Admin', url: '/admin'},
         {title: 'Calculator', url: '/calculator'}
     ];
 

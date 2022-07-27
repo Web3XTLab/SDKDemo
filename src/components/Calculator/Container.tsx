@@ -62,7 +62,7 @@ export function Calculator() {
                 screenValue={screenValue}
                 isShowingResult={isShowingResult}
                 loading={verifyResultLoading}
-                isAuthenticated={verifyResult[1]}
+                verifyResult={verifyResult}
                 onKeyClickFactory={onKeyClickFactory}
             />
         </>

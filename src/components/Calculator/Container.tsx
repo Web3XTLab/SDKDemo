@@ -1,66 +1,50 @@
-import {useAuthenticate} from '@/src/hooks/useAuthenticate';
-import {calculate} from '@/src/utils/calculate';
+import { useVerify } from '@/src/hooks/useVerify';
+import { calculate } from '@/src/utils/calculate';
 import Head from 'next/head';
-import {useState} from 'react';
-import {CalculatorView, ICalculatorViewProps} from './View';
+import { useState } from 'react';
+import { CalculatorView, ICalculatorViewProps } from './View';
 
-export function Calculator()
-{
+export function Calculator() {
     const [screenValue, setScreenValue] = useState('0');
     const [formula, setFormula] = useState('0');
     const [isShowingResult, setIsShowingResult] = useState(true);
 
-    const authenticateResult = useAuthenticate();
+    const {loading: verifyResultLoading, result: verifyResult} = useVerify();
 
-    const reset = () =>
-    {
+    const reset = () => {
         setScreenValue('0');
         setFormula('0');
         setIsShowingResult(true);
     };
 
-    const onKeyClickFactory: ICalculatorViewProps['onKeyClickFactory'] = key =>
-    {
-        return () =>
-        {
-            if (key === '*')
-            {
+    const onKeyClickFactory: ICalculatorViewProps['onKeyClickFactory'] = (
+        key
+    ) => {
+        return () => {
+            if (key === '*') {
                 setScreenValue(screenValue + '×');
                 setFormula(formula + key);
                 setIsShowingResult(false);
-            }
-            else if (key === '/')
-            {
+            } else if (key === '/') {
                 setScreenValue(screenValue + '÷');
                 setFormula(formula + key);
                 setIsShowingResult(false);
-            }
-            else if (key === '+' || key === '-')
-            {
+            } else if (key === '+' || key === '-') {
                 setScreenValue(screenValue + key);
                 setFormula(formula + key);
                 setIsShowingResult(false);
-            }
-            else if (key === '=')
-            {
+            } else if (key === '=') {
                 const result = calculate(formula).toString();
                 setScreenValue(result);
                 setFormula(result);
                 setIsShowingResult(true);
-            }
-            else if (key === 'C')
-            {
+            } else if (key === 'C') {
                 reset();
-            }
-            else
-            {
-                if (isShowingResult)
-                {
+            } else {
+                if (isShowingResult) {
                     setScreenValue(key);
                     setFormula(key);
-                }
-                else
-                {
+                } else {
                     setScreenValue(screenValue + key);
                     setFormula(formula + key);
                 }
@@ -77,9 +61,10 @@ export function Calculator()
             <CalculatorView
                 screenValue={screenValue}
                 isShowingResult={isShowingResult}
-                loading={authenticateResult.loading}
-                isAuthenticated={authenticateResult.result}
-                onKeyClickFactory={onKeyClickFactory} />
+                loading={verifyResultLoading}
+                isAuthenticated={verifyResult[1]}
+                onKeyClickFactory={onKeyClickFactory}
+            />
         </>
     );
 }

@@ -1,7 +1,8 @@
 import { useVerify } from '@/src/hooks/useVerify';
 import { calculate } from '@/src/utils/calculate';
 import Head from 'next/head';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useMemo, useState } from 'react';
 import { CalculatorView, ICalculatorViewProps } from './View';
 
 export function Calculator() {
@@ -9,7 +10,8 @@ export function Calculator() {
     const [formula, setFormula] = useState('0');
     const [isShowingResult, setIsShowingResult] = useState(true);
 
-    const {loading: verifyResultLoading, result: verifyResult} = useVerify();
+    const { loading: verifyResultLoading, result: verifyResult } = useVerify();
+    const router = useRouter();
 
     const reset = () => {
         setScreenValue('0');
@@ -53,6 +55,11 @@ export function Calculator() {
         };
     };
 
+    const loading = useMemo(
+        () => verifyResultLoading || !router.isReady,
+        [router.isReady, verifyResultLoading]
+    );
+
     return (
         <>
             <Head>
@@ -61,7 +68,7 @@ export function Calculator() {
             <CalculatorView
                 screenValue={screenValue}
                 isShowingResult={isShowingResult}
-                loading={verifyResultLoading}
+                loading={loading}
                 verifyResult={verifyResult}
                 onKeyClickFactory={onKeyClickFactory}
             />

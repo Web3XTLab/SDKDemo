@@ -67,7 +67,7 @@ export function CalculatorView(props: ICalculatorViewProps) {
             ) : (
                 <div className={styles.container}>
                     <MessageBar messageBarType={MessageBarType.error}>
-                        You need to acquire the basic plan of the app to
+                        Acquire the basic plan of the app to
                         continue.
                     </MessageBar>
                     {verifyResult[APP_PLAN_TYPE.OWNERSHIP] && (
